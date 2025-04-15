@@ -1,0 +1,28 @@
+🎯 Självständiga övningar
+
+🟢 Lätt nivå
+
+1. Skydda ytterligare en route: /userdata som returnerar JWT-payloaden.
+
+-------------------
+2. Registrera flera användare och logga in med varje användare.
+
+-------------------
+-------------------
+-------------------
+🟠 Medelnivå
+
+1. Felhantering bcrypt: Hantera fel om lösenord saknas eller är tomt vid registrering.
+
+-------------------
+2. Ändra lösenord-route: Skapa en route /change-password som kräver JWT och låter användaren byta lösenord (hash:a nytt lösenord med bcrypt).
+
+-------------------
+-------------------
+-------------------
+🔴 Svår nivå
+
+1. Utöka middleware: Kontrollera inte bara giltighet utan även specifik användarinfo från payload (t.ex. roll).
+
+-------------------
+2. JWT med blacklist: Implementera en blacklist för JWT (token-invalidering vid utloggning).
