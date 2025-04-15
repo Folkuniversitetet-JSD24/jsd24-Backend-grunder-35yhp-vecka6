@@ -1,0 +1,215 @@
+🧭 Workshop – 🚀 Lektion 1 – Autentisering, Auktorisering & JWT (Onsdag)
+
+📌 Lektionsmål:
+
+Efter lektionen ska studenterna:
+
+Förstå vad JWT är och hur det fungerar.
+
+Veta skillnaden mellan autentisering och auktorisering.
+
+Kunna implementera inloggning med JWT och skydda en route.
+
+Testa och verifiera JWT-autentisering med Postman.
+
+-----------------------------
+📝 Tidsplanering (3 timmar)
+
+00:00–00:30	🎓 PowerPoint: Autentisering, Auktorisering & JWT-koncept
+00:30–01:40	💻 Code-Along: JWT-inloggning i Express
+01:40–03:00	🧠 Självständig övning: Skydda route med JWT-token
+
+-----------------------------
+📚 PowerPoint – Viktiga ämnen:
+
+Vad är autentisering? (vem är du?)
+
+Vad är auktorisering? (får du göra det?)
+
+Vad är en JWT?
+
+Struktur (header.payload.signature)
+
+Vad innehåller en token?
+
+Varför JWT?
+
+Vad är skillnaden mot sessions?
+
+🗣️ Talarmanus:
+"Autentisering är som att visa ditt ID. Auktorisering är att bli insläppt i ett låst rum. JWT fungerar som en digital ID-bricka som följer med varje request."
+
+🗂️ PowerPoint – Fördelning av slides
+Jag föreslår att första lektionen täcker de här 6–7 slidesen (av totalt kanske 10–12):
+
+Vad är autentisering och auktorisering? (begrepp)
+
+Risker med att ha öppna API-endpoints
+
+Vad är en JWT och hur ser den ut? (struktur: header.payload.signature)
+
+Hur fungerar JWT i ett API-flöde? (login → token → protected route)
+
+Skillnad mellan sessions och tokens
+
+När ska man använda JWT? (fördelar/nackdelar)
+
+Övriga slides, t.ex. middleware för verifiering och risker med attacker (token leakage, etc.), lämpar sig bättre till lektion 2 (Fredag).
+
+Jag hjälper dig gärna skriva talarmanus till alla dessa 6 slides 👇
+
+-----------------------------
+-----------------------------
+-----------------------------
+📊 PowerPoint Slides
+
+🎤 Talarmanus – Slide 1 – Innehåll
+
+”Den här veckan handlar om API-säkerhet och autentisering med JWT. Vi börjar med att förstå skillnaden mellan autentisering och auktorisering, vad JWT är, och hur vi integrerar JWT i Express.”
+
+-----------------------------
+Slide 2 – Vad är autentisering?
+
+”Autentisering betyder att identifiera vem användaren är. Det är som att visa ID-kort. 
+
+Auktorisering handlar om att ge rättigheter. Till exempel: 'Ja, vi vet vem du är, men får du komma in här?' Tänk på autentisering som 'vem är du?', och auktorisering som 'vad får du göra?'.”
+
+-----------------------------
+Slide 3 – Autentisering & auktorisering
+
+”Här ser vi ett tydligt exempel på skillnaden:
+Authentication handlar om att bekräfta identiteten (inloggning).
+
+Authorization avgör om en identifierad användare har tillgång till en viss sida eller resurs.
+
+Publika sidor kräver ingen autentisering, medan skyddade sidor kräver både autentisering och auktorisering.”
+
+-----------------------------
+Slide 4 – JWT-struktur
+🗣️ "JWT:n består av tre delar:
+
+Header: vilket typ av token och algoritm (t.ex. HS256)
+
+Payload: själva datan – t.ex. användar-ID, roller, mm
+
+Signature: en kod som säkerställer att ingen manipulerat innehållet"
+
+-----------------------------
+Slide 4 – Varför JWT?
+
+”Varför använder vi JWT? Jo, för att webbservrar är stateless – de minns inte vem du är mellan olika requests. JWT är en säker metod för att servern ska komma ihåg vem du är efter du har loggat in, utan att lagra information direkt i serverns minne.”
+
+Efter slide 4 (Varför JWT?), ta kort upp detta:
+
+"Vanliga alternativ till JWT är sessioner, där servern sparar information i minnet. Problemet med sessions är att det kan bli komplicerat att hantera på stora system med flera servrar. JWT löser detta genom att token skickas med i varje request och är oberoende av serverns minne."
+
+Detta ger studenterna ännu tydligare insikt i varför JWT är populärt och vad som skiljer det från traditionella sessioner.
+
+-----------------------------
+Slide 5 - JWT:s tre delar:
+
+”En JWT består av tre delar:
+
+Header – anger algoritm och token-typ (JWT).
+
+Payload – innehåller data (t.ex. användarens id eller roll).
+
+Signature – säkerställer att token inte ändrats eller manipulerats.”
+
+-----------------------------
+Slide 6 – JWT-processen (diagram från bilden)
+
+”Diagrammet visar flödet för JWT:
+
+Användaren loggar in (username/password).
+
+Servern skapar och signerar en JWT med ett hemligt lösenord.
+
+Servern skickar tillbaka JWT till klienten.
+
+Klienten skickar JWT tillbaka i varje request för skyddade routes.
+
+Servern verifierar JWT vid varje request.”
+
+-----------------------------
+Slide 7 – JWT-processen 
+
+”Här har vi JWT-processen detaljerat beskriven:
+Efter att användaren loggar in och servern verifierar användaruppgifterna från databasen, returnerar servern en JWT. Klienten sparar den i t.ex. localStorage. Varje request som sedan görs skickar med JWT:n i en header, och servern verifierar alltid token innan den ger tillgång.”
+
+-----------------------------
+Slide 8 – Authorization header?
+
+”JWT skickas alltid via Authorization-headern i varje request. Headern börjar med ordet ’Bearer’ följt av ett mellanslag och sedan JWT:n. Till exempel:
+Authorization: Bearer <token>
+Detta är viktigt både när ni använder fetch från frontend och Postman.”
+
+-----------------------------
+Slide 9 – npm-paket (jsonwebtoken)
+
+”För att använda JWT i vår backend behöver vi paketet jsonwebtoken.
+Vi använder jwt.sign() för att skapa (signera) tokens och jwt.verify() för att verifiera tokens och få tillbaka innehållet.”
+
+-----------------------------
+Slide 10 – Code-along backend autentisering
+
+”Strax ska vi genomföra en code-along där vi tillsammans implementerar autentisering med JWT i Express. Vi kommer skapa en enkel backend med routes för att logga in och hämta skyddad data. Vi testar allt med Postman.”
+
+-----------------------------
+
+-----------------------------
+-----------------------------
+-----------------------------
+💻 Code-Along: JWT i Express
+
+Installera:
+npm install express jsonwebtoken dotenv
+
+.env:
+JWT_SECRET=hemligkod123
+
+server.js (exempel med "inloggning")
+
+genomför den koden
+
+-----------------------------
+-----------------------------
+-----------------------------
+🧪 Testa med Postman
+
+🔧 Starta servern
+node server.js
+
+Testa API:t i Postman:
+POST – Logga in för att få JWT
+
+POST http://localhost:8080/login
+
+Body (JSON):
+{
+  "username": "admin",
+  "password": "1234"
+}
+
+👉 Du får tillbaka en token som:
+{ "token": "eyJhbGciOiJIUzI1Ni..." }
+
+
+GET – Skyddad route (/secret)
+
+GET http://localhost:8080/secret
+Header:
+Authorization: Bearer DIN_TOKEN_HÄR
+
+Testa utan token (401).
+
+Testa med felaktig token (403).
+
+-----------------------------
+-----------------------------
+-----------------------------
+Dags för övningar
+
+-----------------------------
+-----------------------------
+-----------------------------
