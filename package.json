@@ -1,0 +1,27 @@
+{
+  "name": "jsd24-backend-grunder-35yhp-vecka6",
+  "version": "1.0.0",
+  "description": "* ✅ Autentisering och auktorisering\r * ✅ JSON Web Token (JWT)\r * ✅ Skydda endpoints med JWT\r * ✅ Hashing med bcrypt.js\r * ✅ Miljövariabler (.env)\r * ✅ Säkerhetskoncept: API-nycklar vs JWT",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Folkuniversitetet-JSD24/jsd24-Backend-grunder-35yhp-vecka6.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Folkuniversitetet-JSD24/jsd24-Backend-grunder-35yhp-vecka6/issues"
+  },
+  "homepage": "https://github.com/Folkuniversitetet-JSD24/jsd24-Backend-grunder-35yhp-vecka6#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

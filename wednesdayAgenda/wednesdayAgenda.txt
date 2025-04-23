@@ -106,17 +106,6 @@ Efter slide 4 (Varför JWT?), ta kort upp detta:
 Detta ger studenterna ännu tydligare insikt i varför JWT är populärt och vad som skiljer det från traditionella sessioner.
 
 -----------------------------
-Slide 5 - JWT:s tre delar:
-
-”En JWT består av tre delar:
-
-Header – anger algoritm och token-typ (JWT).
-
-Payload – innehåller data (t.ex. användarens id eller roll).
-
-Signature – säkerställer att token inte ändrats eller manipulerats.”
-
------------------------------
 Slide 6 – JWT-processen (diagram från bilden)
 
 ”Diagrammet visar flödet för JWT:
